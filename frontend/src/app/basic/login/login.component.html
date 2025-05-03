@@ -1,6 +1,6 @@
 <div class="center-form">
     <h2>Puntuale - Login</h2>
-    <form nz-form class="custom-form" [formGroup]=loginForm>
+    <form nz-form class="custom-form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
         <nz-form-item>
             <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
             <nz-form-control [nzSpan]="14">

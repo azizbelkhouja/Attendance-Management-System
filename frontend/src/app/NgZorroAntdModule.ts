@@ -110,7 +110,8 @@ const andDesignIcons = Object.values(AllIcons);
         NzTypographyModule,
         NzUploadModule,
         NzPipesModule,
-        NzResizableModule
+        NzResizableModule,
+        NzMessageModule
     ]
     })
 
