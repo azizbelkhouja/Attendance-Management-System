@@ -19,8 +19,8 @@ export class LoginComponent {
 
   ngOnInit() {
     this.loginForm = this.fb.group({
-      email: [null, [Validators.required]],
-      password: [null, [Validators.required]],
+      email: ['admin@admin.com', [Validators.required]],
+      password: ['admin', [Validators.required]],
       remember: [true]
     });
   }
@@ -28,8 +28,8 @@ export class LoginComponent {
   submitForm() {
     this.authService.loginUser(this.loginForm.value).subscribe(
       (response) => {
+        UserStorageService.saveUser(response);
         console.log('Login successful', response);
-        UserStorageService.saveUser(response.user);
       },
       (error) => {
         this.message.error(`Bad Credentials`, { nzDuration: 3000 });
