@@ -16,15 +16,14 @@ export class AppComponent {
   isAdminLoggedIn:boolean = UserStorageService.isAdminLoggedIn();
   isManagerLoggedIn:boolean = UserStorageService.isManagerLoggedIn();
 
-  constructor(private router:Router) {
+  constructor(private router:Router) {}
     
-    ngOnInit() {
-
-      this.router.events.subscribe((event) => {
-        this.isEmployeeLoggedIn = UserStorageService.isEmployeeLoggedIn();
-        this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
-        this.isManagerLoggedIn = UserStorageService.isManagerLoggedIn();
-      })
-    }
+  ngOnInit() {
+    this.router.events.subscribe((event) => {
+      this.isEmployeeLoggedIn = UserStorageService.isEmployeeLoggedIn();
+      this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
+      this.isManagerLoggedIn = UserStorageService.isManagerLoggedIn();
+    });
   }
+  
 }

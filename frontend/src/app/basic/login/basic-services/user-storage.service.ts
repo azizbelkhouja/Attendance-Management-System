@@ -14,8 +14,18 @@ export class UserStorageService {
     window.localStorage.setItem(USER, JSON.stringify(user));
   }
 
-  static getUser():any {
-    return JSON.parse(localStorage.getItem(USER));
+  static getUser(): any {
+    const data = localStorage.getItem(USER);
+    if (!data) {
+      return null;
+    }
+  
+    try {
+      return JSON.parse(data);
+    } catch (error) {
+      console.error("Failed to parse user data from localStorage:", error);
+      return null;
+    }
   }
 
   static getUserId():string {
@@ -25,7 +35,7 @@ export class UserStorageService {
 
   static getUserProjectId():string {
     const user = this.getUser();
-    return user ? user.projuctId : '';
+    return user ? user.projectId : '';
   }
 
   static getUserRole():string {
