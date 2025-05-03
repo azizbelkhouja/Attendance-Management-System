@@ -1,0 +1,22 @@
+<div class="center-form">
+    <h2>Puntuale - Login</h2>
+    <form nz-form class="custom-form" [formGroup]=loginForm>
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzRequired>Email</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input nz-input formControlName="email" placeholder="Enter your email" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzRequired>Password</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input nz-input type="password" formControlName="password" placeholder="Enter your password" />
+            </nz-form-control>
+        </nz-form-item>
+
+        <div class="form-actions">
+            <button nz-button nzType="primary" nzBlock class="w-100" [disabled]=loginForm.invalid>Login</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,68 @@
+:host {
+display: block;
+min-height: 100vh;
+background-color: #EEF0F4;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.center-form {
+width: 100%;
+max-width: 400px;
+padding: 40px;
+background-color: white;
+border-radius: 12px;
+box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+text-align: center;
+
+h2 {
+    color: #213D72;
+    margin-bottom: 24px;
+    font-weight: 600;
+    font-size: 28px;
+}
+
+.custom-form {
+    .ant-form-item-label > label {
+    color: #213D72;
+    font-weight: 500;
+    }
+
+    input[nz-input] {
+    border: 1px solid #213D72;
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: border-color 0.3s ease;
+
+        &:focus {
+            border-color: #213D72;
+            box-shadow: 0 0 0 2px rgba(33, 61, 114, 0.2);
+        }
+    }
+
+    .form-actions {
+
+        button {
+            background-color: #213D72;
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+            background-color: #1a2f59;
+            }
+
+            &:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+            }
+        }
+    }
+}
+}
+  
