@@ -1,5 +1,6 @@
 package com.puntuale.entities;
 
+import com.puntuale.dto.ProjectDTO;
 import jakarta.persistence.*;
 import java.util.Date;
 
@@ -19,6 +20,18 @@ public class Project {
     @Temporal(TemporalType.DATE)
     @Column(name = "start_date")
     private Date startDate;
+
+    public ProjectDTO getDto() {
+
+        ProjectDTO dto = new ProjectDTO();
+
+        dto.setId(id);
+        dto.setName(name);
+        dto.setDuration(duration);
+        dto.setStartDate(startDate);
+
+        return dto;
+    }
 
     // Constructors
     public Project() {}
