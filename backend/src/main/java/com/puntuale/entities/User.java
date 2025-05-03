@@ -1,5 +1,6 @@
 package com.puntuale.entities;
 
+import com.puntuale.dto.UserDTO;
 import com.puntuale.enums.UserRole;
 import jakarta.persistence.*;
 
@@ -23,6 +24,18 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private UserRole userRole;
+
+    public UserDTO getDto() {
+
+        UserDTO dto = new UserDTO();
+
+        dto.setId(id);
+        dto.setEmail(email);
+        dto.setName(name);
+        dto.setUserRole(userRole);
+
+        return dto;
+    }
 
     // Default constructor
     public User() {}
