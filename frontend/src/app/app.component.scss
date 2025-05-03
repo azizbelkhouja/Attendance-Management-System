@@ -1,0 +1,60 @@
+:host {
+    display: block;
+    height: 100vh;
+    background-color: #EEF0F4;
+
+    nz-layout {
+        height: 100%;
+
+        nz-sider {
+            background-color: #213D72 !important;
+
+            .logo {
+                height: 64px;
+                background: #1a2f59;
+                margin: 16px;
+                border-radius: 8px;
+            }
+
+            ul[nz-menu] {
+                background-color: transparent;
+                border: none;
+
+                li[nz-menu-item] {
+                    color: #fff;
+                    font-weight: 500;
+
+                    &:hover {
+                        background-color: #1a2f59;
+                    }
+
+                    &.ant-menu-item-selected {
+                        background-color: #1a2f59;
+                        border-left: 4px solid #fff;
+                    }
+
+                    span[nz-icon] {
+                        margin-right: 8px;
+                    }
+
+                    strong {
+                        color: white;
+                    }
+                }
+            }
+        }
+
+        nz-content {
+        padding: 24px;
+        background-color: #EEF0F4;
+        }
+
+        nz-footer {
+        text-align: center;
+        padding: 16px;
+        background-color: #213D72;
+        color: white;
+        }
+    }
+}
+  
