@@ -12,7 +12,7 @@ export class ManageProjectsComponent {
 
   projectForm! : FormGroup;
 
-  constructor(fb:FormBuilder){}
+  constructor(private fb:FormBuilder){}
 
   ngOnInit() {
     this.projectForm = this.fb.group({
