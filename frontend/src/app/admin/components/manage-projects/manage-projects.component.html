@@ -1,0 +1,30 @@
+<div style="margin-top: 10px;">
+    <div nz-row>
+        <div nz-col nzFlex="2">
+            <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Project">
+                <form nz-form [formGroup]="projectForm" > 
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="4" nzRequired>Project Name</nz-form-label>
+                        <nz-form-control [nzSpan]="14" [nzErrorTip]="projectNameError">
+                            <input nz-input formControlName="projectName" placeholder="Enter project name" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-label [nzSpan]="4" nzRequired>Estimated Duration</nz-form-label>
+                        <nz-form-control [nzSpan]="14" [nzErrorTip]="DurationError">
+                            <input nz-input formControlName="Duration" placeholder="Enter project name" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzErrorTip]="StartDateError">
+                            <nz-date-picker formControlName="StartDate" nzFormat="dd-MM-yyyy" nzPlaceHolder="Select Start Date"></nz-date-picker>
+                        </nz-form-control>
+                    </nz-form-item>
+
+                    <button nz-button nz-type="primary" nzBlock class="w-100"[disabled]="projectForm.invalid">ADD</button>
+                </form>
+            </nz-card>
+        </div>
+
+    </div>
+</div>
