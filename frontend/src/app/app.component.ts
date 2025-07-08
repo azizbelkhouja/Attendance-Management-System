@@ -26,4 +26,9 @@ export class AppComponent {
     });
   }
   
+  logout() {
+    UserStorageService.signOut();
+    this.router.navigateByUrl('/');
+  }
+
 }

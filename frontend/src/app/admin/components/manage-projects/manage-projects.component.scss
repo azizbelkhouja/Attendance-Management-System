@@ -8,16 +8,15 @@ form {
         display: flex;
         align-items: center;
         margin-bottom: 12px;
-
+        
         nz-form-label {
             font-weight: 600;
             color: #213D72;
         }
-
+        
         nz-form-control {
             input,
             nz-date-picker {
-                width: 100%;
                 border: 1px solid #d9d9d9;
                 border-radius: 6px;
                 padding: 8px 12px;

@@ -4,13 +4,11 @@
             <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Project">
                 <form nz-form [formGroup]="projectForm" (ngSubmit)="submitForm()">
                     <nz-form-item>
-                        <nz-form-label [nzSpan]="4" nzRequired>Project Name</nz-form-label>
                         <nz-form-control [nzSpan]="14" nzErrorTip="Enter a project name">
                             <input nz-input formControlName="name" placeholder="Enter project name" />
                         </nz-form-control>
                     </nz-form-item>
                     <nz-form-item>
-                        <nz-form-label [nzSpan]="4" nzRequired>Estimated Duration</nz-form-label>
                         <nz-form-control [nzSpan]="14" nzErrorTip="Enter a project duration">
                             <input nz-input formControlName="duration" placeholder="Enter project duration" />
                         </nz-form-control>
@@ -25,6 +23,26 @@
                 </form>
             </nz-card>
         </div>
+        <div nz-col nzFlex="3" style="margin-left: 10px;">
+            <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Projects List">
+                <nz-table #basicTable [nzData]="projects" [nzBordered]="true" [nzSize]="'middle'">
+                    <thead>
+                        <tr>
+                            <th nzWidth="25%">Project Name</th>
+                            <th nzWidth="25%">Duration</th>
+                            <th nzWidth="25%">Start Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let project of projects">
+                            <td>{{ project.name }}</td>
+                            <td>{{ project.duration }}</td>
+                            <td>{{ project.startDate | date: 'dd-MM-yyyy' }}</td>
+                        </tr>
+                    </tbody>
+                </nz-table>
+            </nz-card>
 
+        </div>
     </div>
 </div>
