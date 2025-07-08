@@ -6,6 +6,9 @@ import com.puntuale.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ProjectService {
 
@@ -20,5 +23,9 @@ public class ProjectService {
         project.setStartDate(dto.getStartDate());
 
         return projectRepository.save(project).getDto();
+    }
+
+    public List<ProjectDTO> getAllProjects() {
+        return projectRepository.findAll().stream().map(Project::getDto).collect(Collectors.toList());
     }
 }

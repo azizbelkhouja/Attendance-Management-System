@@ -3,6 +3,7 @@ package com.puntuale.controller;
 import com.puntuale.dto.ProjectDTO;
 import com.puntuale.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,6 +21,15 @@ public class ProjectController {
             return ResponseEntity.ok(projectService.addProject(dto));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllProjects() {
+        try {
+            return ResponseEntity.ok(projectService.getAllProjects());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
     }
 }
