@@ -10,6 +10,7 @@ import { NzMessageService } from 'ng-zorro-antd/message';
   templateUrl: './manage-projects.component.html',
   styleUrl: './manage-projects.component.scss'
 })
+
 export class ManageProjectsComponent {
 
   projectForm! : FormGroup;
@@ -19,12 +20,15 @@ export class ManageProjectsComponent {
     private message: NzMessageService
   ){}
 
+  projects: any;
+
   ngOnInit() {
     this.projectForm = this.fb.group({
       name: [null, [Validators.required]],
       duration: [null, [Validators.required]],
       startDate: [null, [Validators.required]],
     })
+    this.getAllProjects();
   }
 
   submitForm() {
@@ -33,10 +37,19 @@ export class ManageProjectsComponent {
       next: (res) => {
         this.message.success('Project added successfully');
         this.projectForm.reset();
+        this.getAllProjects();
       },
       error: (err) => {
         this.message.error('Failed to add project');
       }
     });
   }
+
+  getAllProjects() {
+    this.adminService.getProjects().subscribe(res=>{
+      this.projects = res;
+      console.log(this.projects);
+    });
+  }
+
 }
