@@ -48,17 +48,13 @@ public class User {
     // Default constructor
     public User() {}
 
-    // Constructor with all fields (optional, you can remove if not needed)
-    public User(String email, String password, String name, UserRole userRole) {
-        this.email = email;
-        this.password = password;
-        this.name = name;
-        this.userRole = userRole;
-    }
-
     // GETTERS
     public Long getId() {
         return id;
+    }
+
+    public Project getProject() {
+        return project;
     }
 
     public String getEmail() {
@@ -77,9 +73,14 @@ public class User {
         return userRole;
     }
 
+
     // SETTERS
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void setProject(Project project) {
+        this.project = project;
     }
 
     public void setEmail(String email) {
