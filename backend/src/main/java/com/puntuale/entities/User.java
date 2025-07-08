@@ -25,6 +25,9 @@ public class User {
     @Column(nullable = false)
     private UserRole userRole;
 
+    @ManyToOne
+    private Project project;
+
     public UserDTO getDto() {
 
         UserDTO dto = new UserDTO();
@@ -33,6 +36,11 @@ public class User {
         dto.setEmail(email);
         dto.setName(name);
         dto.setUserRole(userRole);
+
+        if(project != null) {
+            dto.setProjectId(project.getId());
+            dto.setProjectName(project.getName());
+        }
 
         return dto;
     }

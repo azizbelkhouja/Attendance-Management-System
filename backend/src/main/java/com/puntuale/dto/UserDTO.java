@@ -9,10 +9,20 @@ public class UserDTO {
     private String password;
     private String name;
     private UserRole userRole;
+    private Long projectId;
+    private String projectName;
 
     // GETTERS
     public Long getId() {
         return id;
+    }
+
+    public Long getProjectId() {
+        return projectId;
+    }
+
+    public Long getProjectName() {
+        return projectName;
     }
 
     public String getEmail() {
@@ -39,6 +49,15 @@ public class UserDTO {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public void setProjectId(Long projectId) {
+        this.projectId = projectId;
+    }
+
+    public void setProjectName(String projectName) {
+        this.projectName = projectName;
+    }
+
 
     public void setPassword(String password) {
         this.password = password;
