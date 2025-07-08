@@ -2,26 +2,26 @@
     <div nz-row>
         <div nz-col nzFlex="2">
             <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Project">
-                <form nz-form [formGroup]="projectForm" > 
+                <form nz-form [formGroup]="projectForm" (ngSubmit)="submitForm()">
                     <nz-form-item>
                         <nz-form-label [nzSpan]="4" nzRequired>Project Name</nz-form-label>
-                        <nz-form-control [nzSpan]="14" nzErrorTip="ENter a project name">
-                            <input nz-input formControlName="projectName" placeholder="Enter project name" />
+                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a project name">
+                            <input nz-input formControlName="name" placeholder="Enter project name" />
                         </nz-form-control>
                     </nz-form-item>
                     <nz-form-item>
                         <nz-form-label [nzSpan]="4" nzRequired>Estimated Duration</nz-form-label>
                         <nz-form-control [nzSpan]="14" nzErrorTip="Enter a project duration">
-                            <input nz-input formControlName="Duration" placeholder="Enter project name" />
+                            <input nz-input formControlName="duration" placeholder="Enter project duration" />
                         </nz-form-control>
                     </nz-form-item>
                     <nz-form-item>
                         <nz-form-control nzErrorTip="Select a project type">
-                            <nz-date-picker formControlName="StartDate" nzFormat="dd-MM-yyyy" nzPlaceHolder="Select Start Date"></nz-date-picker>
+                            <nz-date-picker formControlName="startDate" nzFormat="dd-MM-yyyy" nzPlaceHolder="Select Start Date"></nz-date-picker>
                         </nz-form-control>
                     </nz-form-item>
 
-                    <button nz-button nz-type="primary" nzBlock class="w-100"[disabled]="projectForm.invalid">ADD</button>
+                    <button nz-button nz-type="primary" nzBlock class="w-100" [disabled]="projectForm.invalid">ADD</button>
                 </form>
             </nz-card>
         </div>
