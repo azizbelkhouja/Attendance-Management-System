@@ -2,7 +2,7 @@
     <div nz-row>
         <div nz-col nzFlex="2">
             <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Manager">
-                <form nz-form [formGroup]="managerForm">
+                <form nz-form [formGroup]="managerForm" (ngSubmit)="submitForm()">
                     <nz-form-item>
                         <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager name">
                             <input nz-input formControlName="name" placeholder="Enter manager name" />

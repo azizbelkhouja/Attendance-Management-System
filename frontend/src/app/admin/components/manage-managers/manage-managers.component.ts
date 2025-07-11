@@ -40,4 +40,18 @@ export class ManageManagersComponent {
         console.log('Projects fetched successfully', this.projects);
       });
   }
+
+  submitForm() {
+
+    const data = this.managerForm.value;
+    data.userRole = "MANAGER";
+
+    this.adminService.addUser(data).subscribe( res=> {
+      this.message.success('Manager added successfully');
+      this.managerForm.reset();
+    }, error => {
+      this.message.error('Failed to add manager');
+      console.error('Error adding manager', error);
+    });
+  }
 }
