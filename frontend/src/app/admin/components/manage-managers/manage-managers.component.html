@@ -16,8 +16,8 @@
           </nz-form-item>
 
           <nz-form-item>
-            <nz-form-control nzErrorTip="Enter a manager password">
-              <input nz-input formControlName="password" placeholder="Enter password" />
+            <nz-form-control nzErrorTip="Enter a password">
+              <input type="password" nz-input formControlName="password" placeholder="Enter password" />
             </nz-form-control>
           </nz-form-item>
 
@@ -47,6 +47,7 @@
         <nz-table #basicTable [nzData]="managers" [nzBordered]="true" [nzSize]="'middle'">
           <thead>
             <tr>
+              <th nzWidth="25%">ID</th>
               <th nzWidth="25%">Manager Name</th>
               <th nzWidth="25%">Email</th>
               <th nzWidth="25%">Project</th>
@@ -54,9 +55,10 @@
           </thead>
           <tbody>
             <tr *ngFor="let manager of managers">
+              <td><strong>{{ manager.id }}</strong></td>
               <td>{{ manager.name }}</td>
               <td>{{ manager.email }}</td>
-              <td>{{ manager.project?.name || 'N/A' }}</td>
+              <td>{{ manager.projectName || 'N/A' }}</td>
             </tr>
           </tbody>
         </nz-table>

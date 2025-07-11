@@ -31,6 +31,7 @@ export class ManageManagersComponent {
     });
 
     this.getAllProjects();
+    this.getAllManagers();
   }
 
   getAllProjects() {
@@ -43,15 +44,10 @@ export class ManageManagersComponent {
   }
 
   getAllManagers() {
-    this.adminService.getProjects().subscribe(
-      response => {
-        this.projects = response;
-        console.log('Managers fetched successfully', this.projects);
-      },
-      error => {
-        console.error('Error fetching managers', error);
-      }
-    );
+    this.adminService.getAllManagers().subscribe(res => {
+      this.managers = res;
+      console.log('Managers fetched successfully', this.managers);
+    });
   }
 
   submitForm() {
