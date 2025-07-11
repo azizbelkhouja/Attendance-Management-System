@@ -30,4 +30,13 @@ public class AdminController {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/managers")
+    public ResponseEntity<?> getAllManagers() {
+        try {
+            return ResponseEntity.ok(adminService.getAllManagers());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
+    }
 }

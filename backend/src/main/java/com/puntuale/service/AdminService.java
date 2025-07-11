@@ -4,6 +4,7 @@ package com.puntuale.service;
 import com.puntuale.dto.UserDTO;
 import com.puntuale.entities.Project;
 import com.puntuale.entities.User;
+import com.puntuale.enums.UserRole;
 import com.puntuale.repository.ProjectRepository;
 import com.puntuale.repository.UserRepository;
 import jakarta.persistence.EntityExistsException;
@@ -11,7 +12,9 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class AdminService {
@@ -39,4 +42,24 @@ public class AdminService {
         }
         throw new EntityNotFoundException("Project not found");
     }
+
+    public List<UserDTO> getAllManagers() {
+        List<User> users = userRepository.findAllByUserRole(UserRole.MANAGER);
+        return users.stream().map(User::getDto).collect(Collectors.toList());
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
