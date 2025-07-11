@@ -1,0 +1,68 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px;
+
+    nz-form-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 12px;
+        
+        nz-form-label {
+            font-weight: 600;
+            color: #213D72;
+        }
+        
+        nz-form-control {
+            input,
+            nz-date-picker {
+                border: 1px solid #d9d9d9;
+                border-radius: 6px;
+                padding: 8px 12px;
+                transition: border-color 0.3s ease;
+
+                &:focus,
+                &:hover {
+                    border-color: #213D72;
+                    box-shadow: 0 0 0 2px rgba(33, 61, 114, 0.2);
+                }
+            }
+        }
+    }
+
+    button[nz-button] {
+        background-color: #213D72;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        border: none;
+        border-radius: 6px;
+        padding: 10px 0;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #1a2f59;
+            color: white;
+        }
+
+        &:disabled {
+            background-color: #ccc;
+            color: #666;
+            cursor: not-allowed;
+        }
+    }
+}
+
+nz-card[nzType="inner"] {
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e6e6e6;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+        box-shadow: 0 6px 16px rgba(33, 61, 114, 0.15);
+    }
+}
