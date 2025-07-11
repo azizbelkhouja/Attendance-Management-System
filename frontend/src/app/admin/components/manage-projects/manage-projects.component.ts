@@ -29,6 +29,7 @@ export class ManageProjectsComponent {
       startDate: [null, [Validators.required]],
     })
     this.getAllProjects();
+    this.getAllManagers();
   }
 
   submitForm() {
@@ -49,6 +50,12 @@ export class ManageProjectsComponent {
     this.adminService.getProjects().subscribe(res=>{
       this.projects = res;
       console.log(this.projects);
+    });
+  }
+
+  getAllManagers() {
+    this.adminService.getAllManagers().subscribe(res => {
+      console.log(res);
     });
   }
 

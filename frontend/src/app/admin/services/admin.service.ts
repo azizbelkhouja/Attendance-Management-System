@@ -23,4 +23,8 @@ export class AdminService {
     return this.http.post(`${url}/api/admin/create-user`, data);
   }
 
+  getAllManagers(): Observable<any> {
+    return this.http.get(`${url}/api/admin/managers`);
+  }
+
 }
