@@ -15,6 +15,7 @@ export class ManageManagersComponent {
 
   projects:any;
   managerForm!: FormGroup;
+  managers: any;
 
   constructor ( private adminService: AdminService,
     private fb:FormBuilder,
@@ -41,8 +42,19 @@ export class ManageManagersComponent {
       });
   }
 
-  submitForm() {
+  getAllManagers() {
+    this.adminService.getProjects().subscribe(
+      response => {
+        this.projects = response;
+        console.log('Managers fetched successfully', this.projects);
+      },
+      error => {
+        console.error('Error fetching managers', error);
+      }
+    );
+  }
 
+  submitForm() {
     const data = this.managerForm.value;
     data.userRole = "MANAGER";
 

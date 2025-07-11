@@ -1,34 +1,66 @@
 <div style="margin-top: 10px;">
-    <div nz-row>
-        <div nz-col nzFlex="2">
-            <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Manager">
-                <form nz-form [formGroup]="managerForm" (ngSubmit)="submitForm()">
-                    <nz-form-item>
-                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager name">
-                            <input nz-input formControlName="name" placeholder="Enter manager name" />
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager email">
-                            <input nz-input formControlName="email" placeholder="Enter manager email" />
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager password">
-                            <input nz-input formControlName="password" placeholder="Enter password" />
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control [nzSpan]="14" nzErrorTip="Input the project">
-                            <nz-select nzAllowClear formControlName="projectId" placeholder="Select a project">
-                                <nz-option *ngFor="let project of projects" [nzValue]="project.id" [nzLabel]="project.name"></nz-option>
-                            </nz-select>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <button nz-button nz-type="primary" nzBlock class="w-100" [disabled]="managerForm.invalid">ADD MANAGER</button>
-                </form>
-            </nz-card>
-        </div>
+  <div nz-row>
+    <div nz-col nzFlex="2">
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Manager">
+        <form nz-form [formGroup]="managerForm" (ngSubmit)="submitForm()">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Enter a manager name">
+              <input nz-input formControlName="name" placeholder="Enter manager name" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Enter a manager email">
+              <input nz-input formControlName="email" placeholder="Enter manager email" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Enter a manager password">
+              <input nz-input formControlName="password" placeholder="Enter password" />
+            </nz-form-control>
+          </nz-form-item>
+
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Input the project">
+              <nz-select nzAllowClear formControlName="projectId" placeholder="Select a project">
+                <nz-option *ngFor="let project of projects" [nzValue]="project.id" [nzLabel]="project.name"></nz-option>
+              </nz-select>
+            </nz-form-control>
+          </nz-form-item>
+
+          <button
+            nz-button
+            nz-type="primary"
+            nzBlock
+            class="w-100"
+            [disabled]="managerForm.invalid"
+          >
+            ADD MANAGER
+          </button>
+        </form>
+      </nz-card>
     </div>
 
+    <div nz-col nzFlex="3" style="margin-left: 10px;">
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Managers List">
+        <nz-table #basicTable [nzData]="managers" [nzBordered]="true" [nzSize]="'middle'">
+          <thead>
+            <tr>
+              <th nzWidth="25%">Manager Name</th>
+              <th nzWidth="25%">Email</th>
+              <th nzWidth="25%">Project</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let manager of managers">
+              <td>{{ manager.name }}</td>
+              <td>{{ manager.email }}</td>
+              <td>{{ manager.project?.name || 'N/A' }}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </nz-card>
+    </div>
+  </div>
 </div>

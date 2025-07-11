@@ -21,7 +21,7 @@ public class UserDTO {
         return projectId;
     }
 
-    public Long getProjectName() {
+    public String getProjectName() {
         return projectName;
     }
 
