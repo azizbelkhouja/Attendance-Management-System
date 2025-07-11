@@ -1,1 +1,34 @@
-<p>manage-managers works!</p>
+<div style="margin-top: 10px;">
+    <div nz-row>
+        <div nz-col nzFlex="2">
+            <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Manager">
+                <form nz-form [formGroup]="managerForm">
+                    <nz-form-item>
+                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager name">
+                            <input nz-input formControlName="name" placeholder="Enter manager name" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager email">
+                            <input nz-input formControlName="email" placeholder="Enter manager email" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzSpan]="14" nzErrorTip="Enter a manager password">
+                            <input nz-input formControlName="password" placeholder="Enter password" />
+                        </nz-form-control>
+                    </nz-form-item>
+                    <nz-form-item>
+                        <nz-form-control [nzSpan]="14" nzErrorTip="Input the project">
+                            <nz-select nzAllowClear formControlName="projectId" placeholder="Select a project">
+                                <nz-option *ngFor="let project of projects" [nzValue]="project.id" [nzLabel]="project.name"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                    <button nz-button nz-type="primary" nzBlock class="w-100" [disabled]="managerForm.invalid">ADD MANAGER</button>
+                </form>
+            </nz-card>
+        </div>
+    </div>
+
+</div>

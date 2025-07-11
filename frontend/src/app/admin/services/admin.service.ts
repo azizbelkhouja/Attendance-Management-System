@@ -19,4 +19,8 @@ export class AdminService {
     return this.http.get(`${url}/api/projects/all`);
   }
 
+  addUser(data:any): Observable<any> {
+    return this.http.post(`${url}/api/admin/create-user`, data);
+  }
+
 }
