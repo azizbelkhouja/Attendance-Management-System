@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { SharedModule } from './shared/shared.module';
-import { UserStorageService } from './basic/login/basic-services/user-storage.service';
+import { UserStorageService } from './basic/basic-services/user-storage.service';
 import { Router } from '@angular/router';
 
 @Component({

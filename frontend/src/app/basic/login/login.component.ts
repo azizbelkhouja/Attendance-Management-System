@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from './basic-services/auth.service';
+import { AuthService } from '../basic-services/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { UserStorageService } from './basic-services/user-storage.service';
+import { UserStorageService } from '../basic-services/user-storage.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -34,6 +34,12 @@ export class LoginComponent {
         if(UserStorageService.isAdminLoggedIn()) {
           this.message.success(`Welcome Admin`, { nzDuration: 3000 });
           this.router.navigateByUrl('/admin/dashboard');
+        } else if (UserStorageService.isManagerLoggedIn()) {
+          this.message.success(`Welcome Manager`, { nzDuration: 3000 });
+          this.router.navigateByUrl('/manager/dashboard');
+        } else if (UserStorageService.isEmployeeLoggedIn()) {
+          this.message.success(`Welcome Employee`, { nzDuration: 3000 });
+          this.router.navigateByUrl('/employee/dashboard');
         }
 
         console.log('Login successful', response);
