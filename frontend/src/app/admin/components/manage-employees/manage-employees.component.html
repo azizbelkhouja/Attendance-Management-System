@@ -2,7 +2,7 @@
   <div nz-row>
     <div nz-col nzFlex="2">
       <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Add New Employee">
-        <form nz-form [formGroup]="employeeForm">
+        <form nz-form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
           <nz-form-item>
             <nz-form-control nzErrorTip="Enter a employee name">
               <input nz-input formControlName="name" placeholder="Enter employee name" />

@@ -3,6 +3,7 @@ import { SharedModule } from '../../../shared/shared.module';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from '../../services/admin.service';
 import { NzSelectModule } from 'ng-zorro-antd/select';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-manage-employees',
@@ -15,7 +16,8 @@ export class ManageEmployeesComponent {
   employeeForm! : FormGroup;
   projects: any;
 
-  constructor(private fb: FormBuilder, private adminService: AdminService) {}
+
+  constructor(private fb: FormBuilder, private adminService: AdminService, private message: NzMessageService) {}
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -32,6 +34,19 @@ export class ManageEmployeesComponent {
     this.adminService.getProjects().subscribe(res=>{
       this.projects = res;
       console.log(this.projects);
+    });
+  }
+
+  submitForm() {
+    const data = this.employeeForm.value;
+    data.userRole = "EMPLOYEE";
+
+    this.adminService.addUser(data).subscribe( res=> {
+      this.message.success('Employee added successfully');
+      this.employeeForm.reset();
+    }, error => {
+      this.message.error('Failed to add employee');
+      console.error('Error adding employee', error);
     });
   }
 

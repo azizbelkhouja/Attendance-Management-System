@@ -35,7 +35,6 @@ export class ManageManagersComponent {
   }
 
   getAllProjects() {
-
     this.adminService.getProjects().subscribe(
       response => {
         this.projects = response;

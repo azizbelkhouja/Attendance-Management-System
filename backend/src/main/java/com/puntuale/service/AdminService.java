@@ -47,6 +47,11 @@ public class AdminService {
         List<User> users = userRepository.findAllByUserRole(UserRole.MANAGER);
         return users.stream().map(User::getDto).collect(Collectors.toList());
     }
+
+    public List<UserDTO> getAllEmployees() {
+        List<User> users = userRepository.findAllByUserRole(UserRole.EMPLOYEE);
+        return users.stream().map(User::getDto).collect(Collectors.toList());
+    }
 }
 
 
