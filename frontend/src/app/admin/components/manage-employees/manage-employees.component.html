@@ -41,27 +41,27 @@
         </form>
       </nz-card>
     </div>
-    <!-- <div nz-col nzFlex="3" style="margin-left: 10px;">
-      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Managers List">
-        <nz-table #basicTable [nzData]="managers" [nzBordered]="true" [nzSize]="'middle'">
+    <div nz-col nzFlex="3" style="margin-left: 10px;">
+      <nz-card nzType="inner" style="margin-top:16px;" nzTitle="Employees List">
+        <nz-table #basicTable [nzData]="employees" [nzBordered]="true" [nzSize]="'middle'">
           <thead>
             <tr>
               <th nzWidth="25%">ID</th>
-              <th nzWidth="25%">Manager Name</th>
+              <th nzWidth="25%">Employee Name</th>
               <th nzWidth="25%">Email</th>
               <th nzWidth="25%">Project</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let manager of managers">
-              <td><strong>{{ manager.id }}</strong></td>
-              <td>{{ manager.name }}</td>
-              <td>{{ manager.email }}</td>
-              <td>{{ manager.projectName || 'N/A' }}</td>
+            <tr *ngFor="let employee of employees">
+              <td><strong>{{ employee.id }}</strong></td>
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.email }}</td>
+              <td>{{ employee.projectName || 'N/A' }}</td>
             </tr>
           </tbody>
         </nz-table>
       </nz-card>
-    </div>-->
     </div>
+  </div>
 </div>

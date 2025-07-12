@@ -15,6 +15,7 @@ export class ManageEmployeesComponent {
 
   employeeForm! : FormGroup;
   projects: any;
+  employees: any;
 
 
   constructor(private fb: FormBuilder, private adminService: AdminService, private message: NzMessageService) {}
@@ -28,6 +29,7 @@ export class ManageEmployeesComponent {
     });
 
     this.getAllProjects();
+    this.getAllEmployees();
   }
 
   getAllProjects() {
@@ -47,6 +49,13 @@ export class ManageEmployeesComponent {
     }, error => {
       this.message.error('Failed to add employee');
       console.error('Error adding employee', error);
+    });
+  }
+
+  getAllEmployees() {
+    this.adminService.getAllEmployees().subscribe(res => {
+      this.employees = res;
+      console.log('Employees fetched successfully', this.employees);
     });
   }
 
