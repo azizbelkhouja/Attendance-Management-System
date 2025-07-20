@@ -1,1 +1,29 @@
-<p>manager-dashboard works!</p>
+<div style="padding: 30px;">
+
+    <h3>Mark Today's Attendance</h3>
+    <nz-table #basicTable [nzData]="employeeDetail">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Project Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of basicTable.data">
+                <td>{{data.name}}</td>
+                <td>{{data.projectName}}</td>
+                <td>{{data.email}}</td>
+                <td>
+                    <button nz-button nzType="primary">Present</button>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <button nz-button nzType="primary" nzDanger>Absent</button>
+                    <nz-divider nzType="vertical"></nz-divider>
+                    <button nz-button nzType="default" nzDanger>Leave</button>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+
+</div>
